@@ -1,20 +1,16 @@
 package org.gofpatterns.factorymethod;
 
+import org.gofpatterns.factorymethod.config.Config;
 import org.gofpatterns.factorymethod.exception.CantCookFromFoodException;
 import org.gofpatterns.factorymethod.exception.FoodNotFoundException;
 import org.gofpatterns.factorymethod.food.*;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
 import java.util.Map;
 
 public class FoodFactory {
-    Map<IngredientType, Class<? extends Food>> whatToCook = new HashMap<>();
-    {
-        whatToCook.put(IngredientType.POTATO, FriedPotatoes.class);
-        whatToCook.put(IngredientType.MEAT, RoastMeat.class);
-        //whatToCook.put(IngredientType.SALAD, Salad.class);
-    }
+    static Map<IngredientType, Class<? extends Food>> whatToCook = Config.whatToCook;
+
     public Food cook(IngredientType ingredients) {
         if(whatToCook.containsKey(ingredients)) {
             try {
