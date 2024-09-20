@@ -1,20 +1,28 @@
 package org.gofpatterns.factorymethod;
 
+import org.gofpatterns.factorymethod.exception.CantCookFromFoodException;
+import org.gofpatterns.factorymethod.exception.FoodNotFoundException;
 import org.gofpatterns.factorymethod.food.*;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
+
 public class FoodFactory {
+    Map<IngredientType, Class<? extends Food>> whatToCook = new HashMap<>();
+    {
+        whatToCook.put(IngredientType.POTATO, FriedPotatoes.class);
+        whatToCook.put(IngredientType.MEAT, RoastMeat.class);
+        //whatToCook.put(IngredientType.SALAD, Salad.class);
+    }
     public Food cook(IngredientType ingredients) {
-        switch (ingredients) {
-            case POTATO -> {
-                return new FriedPotatoes();
+        if(whatToCook.containsKey(ingredients)) {
+            try {
+                return whatToCook.get(ingredients).getDeclaredConstructor().newInstance();
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                throw new CantCookFromFoodException(String.format("Can't cook from %s, we're very sorry!", ingredients.toString()));
             }
-            case MEAT -> {
-                return new RoastMeat();
-            }
-            case SALAD -> {
-                return new Salad();
-            }
-            default -> throw new org.factory.exception.FoodNotFoundException("Unknown type of food for cooking! We can't cook!");
         }
+        throw new FoodNotFoundException(String.format("Unknown type of food (%s) for cooking! We can't cook!", ingredients.toString()));
     }
 }
