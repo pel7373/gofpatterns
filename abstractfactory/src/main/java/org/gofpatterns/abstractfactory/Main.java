@@ -3,11 +3,8 @@ package org.gofpatterns.abstractfactory;
 import org.gofpatterns.abstractfactory.config.Config;
 import org.gofpatterns.abstractfactory.cuisine.CuisineFactory;
 import org.gofpatterns.abstractfactory.cuisine.CuisineFactoryType;
-import org.gofpatterns.abstractfactory.exception.CuisineNotFoundException;
 
 import java.util.Arrays;
-
-
 
 public class Main {
     public static void main(String[] args) {
