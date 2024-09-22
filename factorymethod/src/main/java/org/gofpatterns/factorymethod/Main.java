@@ -2,15 +2,15 @@ package org.gofpatterns.factorymethod;
 
 
 import org.gofpatterns.factorymethod.food.Food;
-import org.gofpatterns.factorymethod.food.IngredientType;
+import org.gofpatterns.factorymethod.food.TypeOfFood;
 
 import java.util.Arrays;
 
-public class Oven {
+public class Main {
     public static void main(String[] args) {
         FoodFactory foodFactory = new FoodFactory();
 
-        Arrays.stream(IngredientType.values()).forEach(ingredients -> {
+        Arrays.stream(TypeOfFood.values()).forEach(ingredients -> {
             try{
                 Food food = foodFactory.cook(ingredients);
                 System.out.println(food);

@@ -8,6 +8,4 @@ public class RoastMeat extends Food {
         return "It's RoastMeat!";
     }
 
-    private RoastMeat() {
-    }
 }

@@ -1,6 +1,6 @@
 package org.gofpatterns.factorymethod.food;
 
-public enum IngredientType {
+public enum TypeOfFood {
     POTATO,
     MEAT,
     SALAD
