@@ -13,6 +13,7 @@
         <module>abstractfactory</module>
         <module>prototype</module>
         <module>builder</module>
+        <module>singleton</module>
     </modules>
 
     <properties>
