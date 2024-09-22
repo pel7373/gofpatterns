@@ -1,6 +1,8 @@
 package org.gofpatterns.factorymethod;
 
 
+import org.gofpatterns.factorymethod.exception.CantCookFromFoodException;
+import org.gofpatterns.factorymethod.exception.FoodNotFoundException;
 import org.gofpatterns.factorymethod.food.Food;
 import org.gofpatterns.factorymethod.food.TypeOfFood;
 
@@ -14,7 +16,7 @@ public class Main {
             try{
                 Food food = foodFactory.cook(ingredients);
                 System.out.println(food);
-            } catch (Exception e) {
+            } catch (FoodNotFoundException | CantCookFromFoodException e) {
                 System.out.println(e.getMessage());
             }
         });
