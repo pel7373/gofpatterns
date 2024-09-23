@@ -7,7 +7,7 @@ import org.gofpatterns.prototype.exception.CreateCarException;
 public class Main {
     public static void main(String[] args) {
         try{
-            Car car = Car.getCar(CarType.CAR);
+            Car car = Car.getCar(CarType.SEDAN);
             car.setColor("Red");
             car.setNumber("AAAAA");
             System.out.println(car);
@@ -21,7 +21,7 @@ public class Main {
             car3.setColor("Yellow");
             car3.setNumber("CCCCC");
             System.out.println(car3);
-        } catch (CreateCarException e) {
+        } catch (CreateCarException | CloneNotSupportedException e) {
             System.out.println(e.getMessage());
         }
     }
