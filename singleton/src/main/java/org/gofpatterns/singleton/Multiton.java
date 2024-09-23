@@ -3,11 +3,11 @@ package org.gofpatterns.singleton;
 import org.gofpatterns.singleton.exception.IncorrectInstanceNumber;
 
 public class Multiton {
-    private final static int MAX_INSTANCES = 10;
-    private static Multiton[] arrayOfInstances = new Multiton[MAX_INSTANCES];
-    private static int quantityOfCreatedInstances = 0;
+    private final static int SIZE = 10;
+    private static final Multiton[] instances = new Multiton[SIZE];
+    private static int count = 0;
 
-    private int myNumberOfInstances;
+    private int myInstanceNumber;
 
     private Multiton () {}
 
@@ -16,26 +16,28 @@ public class Multiton {
     }
 
     public static  Multiton getInstance(int instanceNumber) {
-        if(instanceNumber < 0 || instanceNumber >= MAX_INSTANCES) {
-            throw new IncorrectInstanceNumber(String.format("Instance number (%d) can't be < 0 and >= %d", instanceNumber, MAX_INSTANCES));
+        if(instanceNumber < 0 || instanceNumber >= SIZE) {
+            throw new IncorrectInstanceNumber(String.format("Instance number (%d) can't be < 0 and >= %d", instanceNumber, SIZE));
         }
 
-        synchronized (Multiton.class) {
-            if(arrayOfInstances[instanceNumber] == null) {
-                arrayOfInstances[instanceNumber] = new Multiton();
-                arrayOfInstances[instanceNumber].myNumberOfInstances = instanceNumber;
-                quantityOfCreatedInstances++;
+        if(instances[instanceNumber] == null) {
+            synchronized (Multiton.class) {
+                if (instances[instanceNumber] == null) {
+                    instances[instanceNumber] = new Multiton();
+                    instances[instanceNumber].myInstanceNumber = instanceNumber;
+                    count++;
+                }
             }
         }
 
-        return arrayOfInstances[instanceNumber];
+        return instances[instanceNumber];
     }
 
-    public static int getQuantityOfCreatedInstances() {
-        return quantityOfCreatedInstances;
+    public static int getCountInstances() {
+        return count;
     }
 
-    public int getMyNumberOfInstances() {
-        return myNumberOfInstances;
+    public int getMyInstanceNumber() {
+        return myInstanceNumber;
     }
 }
