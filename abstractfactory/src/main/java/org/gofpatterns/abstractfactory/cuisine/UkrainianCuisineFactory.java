@@ -2,29 +2,29 @@ package org.gofpatterns.abstractfactory.cuisine;
 
 import org.gofpatterns.abstractfactory.food.*;
 
-public class CuisineFactoryJapan extends CuisineFactory {
+public class UkrainianCuisineFactory extends CuisineFactory{
     @Override
     public Potato cookPotato() {
-        return new PotatoJapan();
+        return new UkrainianPotato();
     }
 
     @Override
     public RoastMeat cookRoastMeat() {
-        return new RoastMeatJapan();
+        return new UkrainianRoastMeat();
     }
 
     @Override
     public Salad cookSalad() {
-        return new SaladJapan();
+        return new UkrainianSalad();
     }
 
     @Override
-    public SetLunch cookSetLunch() {
-        return new SetLunchJapan();
+    public LunchSet cookSetLunch() {
+        return new UkrainianLunchSet();
     }
 
     @Override
     public String toString() {
-        return "It's cuisineFactoryJapan!";
+        return "It's Ukrainian cuisineFactory!";
     }
 }

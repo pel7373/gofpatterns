@@ -18,7 +18,7 @@ public class Main {
                 System.out.println(cuisineFactory.cookSalad());
                 System.out.println(cuisineFactory.cookSetLunch());
             } else {
-                System.out.println(String.format("Unknown type of cuisine (%s) for cooking! We can't cook!", cuisineType.toString()));
+                System.out.printf("Unknown type of cuisine (%s) for cooking! We can't cook!%n", cuisineType.toString());
             }
         });
 

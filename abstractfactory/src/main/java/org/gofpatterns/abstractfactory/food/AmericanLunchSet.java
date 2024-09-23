@@ -1,8 +1,8 @@
 package org.gofpatterns.abstractfactory.food;
 
-public class RoastMeatJapan extends RoastMeat {
+public class AmericanLunchSet extends LunchSet {
     @Override
     public String toString() {
-        return "It's roastMeatJapan!";
+        return "It's American lunchSet!";
     }
 }
