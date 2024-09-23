@@ -12,13 +12,18 @@ public class Main {
                 .build();
         System.out.println(pizza);
 
-        System.out.println();
         Pizza pizza2 = new Pizza.PizzaBuilder()
                 .setPineapple(2.3)
-                .setBacon(1.0)
+                .setBacon(.5)
                 .setCheese(.7)
                 .setSeafood(1.2)
                 .build();
         System.out.println(pizza2);
+
+        Pizza pizza3 = new Pizza.PizzaBuilder()
+                .setMushrooms(.7)
+                .setBacon(2.0)
+                .build();
+        System.out.println(pizza3);
     }
 }
