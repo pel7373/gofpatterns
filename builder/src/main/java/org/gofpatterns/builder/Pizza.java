@@ -7,36 +7,52 @@ public class Pizza {
     private double mushrooms;
     private double seafood;
 
+    public Pizza() {
+
+    }
+
+    public Pizza(double cheese, double bacon, double pineapple, double mushrooms, double seafood) {
+        this.cheese = cheese;
+        this.bacon = bacon;
+        this.pineapple = pineapple;
+        this.mushrooms = mushrooms;
+        this.seafood = seafood;
+    }
+
     public static class PizzaBuilder {
-        private Pizza pizza = new Pizza();
+        private double cheese;
+        private double bacon;
+        private double pineapple;
+        private double mushrooms;
+        private double seafood;
 
         public PizzaBuilder setCheese(double cheese) {
-            pizza.cheese = cheese;
+            this.cheese = cheese;
             return this;
         }
 
         public PizzaBuilder setBacon(double bacon) {
-            pizza.bacon = bacon;
+            this.bacon = bacon;
             return this;
         }
 
         public PizzaBuilder setPineapple(double pineapple) {
-            pizza.pineapple = pineapple;
+            this.pineapple = pineapple;
             return this;
         }
 
         public PizzaBuilder setMushrooms(double mushrooms) {
-            pizza.mushrooms = mushrooms;
+            this.mushrooms = mushrooms;
             return this;
         }
 
         public PizzaBuilder setSeafood(double seafood) {
-            pizza.seafood = seafood;
+            this.seafood = seafood;
             return this;
         }
 
         public Pizza build() {
-            return pizza;
+            return new Pizza(cheese, bacon, pineapple, mushrooms, seafood);
         }
     }
 
