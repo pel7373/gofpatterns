@@ -1,5 +1,7 @@
 package org.calculator;
 
+import org.calculator.proxy.CacheProxy;
+import org.calculator.proxy.ProfilerProxy;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,37 +17,37 @@ public class Main {
 	@Bean
     CommandLineRunner lookup(CalculatorClient calculator) {
         return args -> {
-			Calculator calculatorProxy = new CacheProxy(new CalculatorImpl(calculator));
+			Calculator calculatorProfilerProxy = new ProfilerProxy(new CacheProxy(new CalculatorImpl(calculator)));
         	int result;
-        	result = calculatorProxy.sum(3, 5);
+        	result = calculatorProfilerProxy.sum(3, 5);
         	System.out.println("The result is : "+ result);
-			result = calculatorProxy.sum(3, 5);
+			result = calculatorProfilerProxy.sum(3, 5);
 			System.out.println("The result is : "+ result);
-			result = calculatorProxy.sum(5, 3);
+			result = calculatorProfilerProxy.sum(5, 3);
 			System.out.println("The result is : "+ result);
 
 			System.out.println();
-        	result = calculatorProxy.subtract(15,10);
+        	result = calculatorProfilerProxy.subtract(15,10);
         	System.out.println("The result is : "+ result);
-			result = calculatorProxy.subtract(15,10);
+			result = calculatorProfilerProxy.subtract(15,10);
 			System.out.println("The result is : "+ result);
-			result = calculatorProxy.subtract(10,15);
-			System.out.println("The result is : "+ result);
-
-			System.out.println();
-			result = calculatorProxy.multiply(15,10);
-			System.out.println("The result is : "+ result);
-			result = calculatorProxy.multiply(10,15);
-			System.out.println("The result is : "+ result);
-			result = calculatorProxy.multiply(10,15);
+			result = calculatorProfilerProxy.subtract(10,15);
 			System.out.println("The result is : "+ result);
 
 			System.out.println();
-			result = calculatorProxy.divide(10,5);
+			result = calculatorProfilerProxy.multiply(15,10);
 			System.out.println("The result is : "+ result);
-			result = calculatorProxy.divide(10,5);
+			result = calculatorProfilerProxy.multiply(10,15);
 			System.out.println("The result is : "+ result);
-			result = calculatorProxy.divide(5,10);
+			result = calculatorProfilerProxy.multiply(10,15);
+			System.out.println("The result is : "+ result);
+
+			System.out.println();
+			result = calculatorProfilerProxy.divide(10,5);
+			System.out.println("The result is : "+ result);
+			result = calculatorProfilerProxy.divide(10,5);
+			System.out.println("The result is : "+ result);
+			result = calculatorProfilerProxy.divide(5,10);
 			System.out.println("The result is : "+ result);
         };
     }

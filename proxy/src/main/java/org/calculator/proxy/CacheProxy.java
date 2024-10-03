@@ -1,19 +1,21 @@
-package org.calculator;
+package org.calculator.proxy;
+
+import org.calculator.Calculator;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class CacheProxy implements Calculator {
-    Calculator calculatorImpl;
 
+    Calculator calculator;
     Map<SortedOperand, Integer> cacheSum = new HashMap<>();
     Map<Operand, Integer> cacheSubtract = new HashMap<>();
     Map<SortedOperand, Integer> cacheMultiply = new HashMap<>();
     Map<Operand, Integer> cacheDivide = new HashMap<>();
 
-    public CacheProxy(Calculator calculatorImpl) {
-        this.calculatorImpl = calculatorImpl;
+    public CacheProxy(Calculator calculator) {
+        this.calculator = calculator;
     }
 
     @Override
@@ -24,7 +26,7 @@ public class CacheProxy implements Calculator {
             return cacheSum.get(newSortedOperand);
         }
 
-        int sum = calculatorImpl.sum(a, b);
+        int sum = calculator.sum(a, b);
         cacheSum.put(newSortedOperand, sum);
         System.out.printf("   ##Cache: put sum to cache: %d + %d = %d\n", a, b, cacheSum.get(newSortedOperand));
 
@@ -39,7 +41,7 @@ public class CacheProxy implements Calculator {
             return cacheSubtract.get(newOperand);
         }
 
-        int subtract = calculatorImpl.subtract(a, b);
+        int subtract = calculator.subtract(a, b);
         cacheSubtract.put(newOperand, subtract);
         System.out.printf("   ##Cache: put subtract to cache: %d - %d = %d\n", a, b, cacheSubtract.get(newOperand));
 
@@ -54,7 +56,7 @@ public class CacheProxy implements Calculator {
             return cacheMultiply.get(newSortedOperand);
         }
 
-        int multiply = calculatorImpl.multiply(a, b);
+        int multiply = calculator.multiply(a, b);
         cacheMultiply.put(newSortedOperand, multiply);
         System.out.printf("   ##Cache: put multiply to cache: %d * %d = %d\n", a, b, cacheMultiply.get(newSortedOperand));
 
@@ -69,7 +71,7 @@ public class CacheProxy implements Calculator {
             return cacheDivide.get(newOperand);
         }
 
-        int subtract = calculatorImpl.divide(a, b);
+        int subtract = calculator.divide(a, b);
         cacheDivide.put(newOperand, subtract);
         System.out.printf("   ##Cache: put divide to cache: %d / %d = %d\n", a, b, cacheDivide.get(newOperand));
 
