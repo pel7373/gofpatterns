@@ -1,8 +1,12 @@
 package org.calculator;
 
+import org.calculator.calculator.Calculator;
+import org.calculator.calculator.CalculatorImplSOAP;
+import org.calculator.config.Operation;
+import org.calculator.exception.InvalidOperandException;
+import org.calculator.exception.InvalidOperationException;
 import org.calculator.proxy.CacheProxyCalculator;
 import org.calculator.proxy.ProfilerProxyCalculator;
-import org.calculator.proxy.ProxyCalculator;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,41 +20,72 @@ public class Main {
 	}
 	
 	@Bean
-    CommandLineRunner lookup(CalculatorClient calculatorClient) {
+    CommandLineRunner lookup(CalculatorImplSOAP calculatorImplSOAP) {
         return args -> {
-			Calculator calculator = new ProfilerProxyCalculator(new CacheProxyCalculator(new CalculatorImpl(calculatorClient)));
-        	int result;
-        	result = calculator.sum(3, 5);
-        	System.out.println("The result is : "+ result);
-			result = calculator.sum(3, 5);
-			System.out.println("The result is : "+ result);
-			result = calculator.sum(5, 3);
-			System.out.println("The result is : "+ result);
+			Calculator<Integer> calculator = new ProfilerProxyCalculator(
+					new CacheProxyCalculator(calculatorImplSOAP));
+			try {
+				int result;
+				Operation operation = Operation.ADD;
+				int a = 5;
+				int b = 10;
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+				a = 10;
+				b = 5;
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
 
-			System.out.println();
-        	result = calculator.subtract(15,10);
-        	System.out.println("The result is : "+ result);
-			result = calculator.subtract(15,10);
-			System.out.println("The result is : "+ result);
-			result = calculator.subtract(10,15);
-			System.out.println("The result is : "+ result);
+				System.out.println();
+				operation = Operation.SUBTRACT;
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+				a = 5;
+				b = 10;
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
 
-			System.out.println();
-			result = calculator.multiply(15,10);
-			System.out.println("The result is : "+ result);
-			result = calculator.multiply(10,15);
-			System.out.println("The result is : "+ result);
-			result = calculator.multiply(10,15);
-			System.out.println("The result is : "+ result);
+				System.out.println();
+				operation = Operation.MULTIPLY;
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+				a = 10;
+				b = 5;
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
 
-			System.out.println();
-			result = calculator.divide(10,5);
-			System.out.println("The result is : "+ result);
-			result = calculator.divide(10,5);
-			System.out.println("The result is : "+ result);
-			result = calculator.divide(5,10);
-			System.out.println("The result is : "+ result);
+				System.out.println();
+				operation = Operation.DIVIDE;
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+				a = 5;
+				b = 10;
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+				result = calculator.calculate(operation, a, b);
+				System.out.printf("%d %s %d = %d\n", a, operation, b, result);
+
+				System.out.println();
+				operation = Operation.SQRT;
+				result = calculator.calculate(operation, a);
+				System.out.printf("%s %d = %d\n", operation, a, result);
+				result = calculator.calculate(operation, a);
+				System.out.printf("%s %d = %d\n", operation, a, result);
+			} catch (InvalidOperationException | InvalidOperandException e) {
+				System.out.println(e.getMessage());
+			}
         };
     }
-
 }

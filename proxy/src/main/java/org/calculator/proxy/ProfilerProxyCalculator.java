@@ -1,45 +1,23 @@
 package org.calculator.proxy;
 
-public class ProfilerProxyCalculator implements ProxyCalculator {
-    ProxyCalculator proxyCalculator;
+import org.calculator.calculator.Calculator;
+import org.calculator.config.Operation;
 
-    public ProfilerProxyCalculator(ProxyCalculator proxyCalculator) {
-        this.proxyCalculator = proxyCalculator;
+public class ProfilerProxyCalculator implements Calculator<Integer> {
+    Calculator<Integer> calculator;
+
+    public ProfilerProxyCalculator(Calculator<Integer> calculator) {
+        this.calculator = calculator;
     }
 
     @Override
-    public int sum(int a, int b) {
+    public Integer calculate(Operation operation, Integer... operands) {
+        System.out.printf("   !!!ProfilerProxy: %s starts working!\n", operation);
         long startTime = System.currentTimeMillis();
-        int result = proxyCalculator.sum(a, b);
+        Integer result = calculator.calculate(operation, operands);
         long time = (System.currentTimeMillis() - startTime);
-        System.out.printf("   !!!ProfilerProxy: sum was being executed for %d milliseconds\n", time);
+        System.out.printf("   !!!ProfilerProxy: %s was being executed for %d milliseconds\n", operation, time);
         return result;
     }
 
-    @Override
-    public int subtract(int a, int b) {
-        long startTime = System.currentTimeMillis();
-        int result = proxyCalculator.subtract(a, b);
-        long time = (System.currentTimeMillis() - startTime);
-        System.out.printf("   !!!ProfilerProxy: subtract was being executed for %d milliseconds\n", time);
-        return result;
-    }
-
-    @Override
-    public int multiply(int a, int b) {
-        long startTime = System.currentTimeMillis();
-        int result = proxyCalculator.multiply(a, b);
-        long time = (System.currentTimeMillis() - startTime);
-        System.out.printf("   !!!ProfilerProxy: multiply was being executed for %d milliseconds\n", time);
-        return result;
-    }
-
-    @Override
-    public int divide(int a, int b) {
-        long startTime = System.currentTimeMillis();
-        int result = proxyCalculator.divide(a, b);
-        long time = (System.currentTimeMillis() - startTime);
-        System.out.printf("   !!!ProfilerProxy: divide was being executed for %d milliseconds\n", time);
-        return result;
-    }
 }
