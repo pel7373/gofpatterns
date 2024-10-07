@@ -1,4 +1,4 @@
-package org.calculator;
+package org.calculator.calculator;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,8 +15,8 @@ public class CalculatorClientConfiguration {
 	}
 
 	@Bean
-	public CalculatorClient calculatorclient(Jaxb2Marshaller marshaller) {
-		final CalculatorClient client = new CalculatorClient();
+	public CalculatorImplSOAP calculatorclient(Jaxb2Marshaller marshaller) {
+		final CalculatorImplSOAP client = new CalculatorImplSOAP();
 		client.setDefaultUri("http://www.dneonline.com/calculator.asmx");
 		client.setMarshaller(marshaller);
 		client.setUnmarshaller(marshaller);
