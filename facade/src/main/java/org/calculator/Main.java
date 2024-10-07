@@ -7,23 +7,24 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.boot.CommandLineRunner;
 
 @SpringBootApplication
-public class SpringBootSoapWsApplication {
+public class Main {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootSoapWsApplication.class, args);
+		SpringApplication.run(Main.class, args);
 	}
 	
 	@Bean
     CommandLineRunner lookup(org.calculator.CalculatorClient calculator) {
         return args -> {
+			Calculator calculatorFacade = new CalculatorImpl(calculator);
         	int result;
-        	result = calculator.add(3, 5);
+        	result = calculatorFacade.sum(3, 5);
         	System.out.println("The result is : "+ result);
-        	result = calculator.substract(15,10);
+        	result = calculatorFacade.subtract(15,10);
         	System.out.println("The result is : "+ result);
-			result = calculator.multiply(15,10);
+			result = calculatorFacade.multiply(15,10);
 			System.out.println("The result is : "+ result);
-			result = calculator.divide(13,5);
+			result = calculatorFacade.divide(13,5);
 			System.out.println("The result is : "+ result);
         };
     }
