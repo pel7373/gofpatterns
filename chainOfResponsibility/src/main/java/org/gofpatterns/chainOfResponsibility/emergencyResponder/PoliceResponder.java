@@ -2,9 +2,6 @@ package org.gofpatterns.chainOfResponsibility.emergencyResponder;
 
 import org.gofpatterns.chainOfResponsibility.EmergencyCall;
 import org.gofpatterns.chainOfResponsibility.config.Config;
-import org.gofpatterns.chainOfResponsibility.exception.InvalidEmergencyCallException;
-
-import java.util.Optional;
 
 public class PoliceResponder extends EmergencyResponder {
 
