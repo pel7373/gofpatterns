@@ -1,4 +1,4 @@
-package org.gofpatterns.command.command;
+package org.gofpatterns.interpreter.command;
 
 public interface Command {
     void execute(Integer... quantity);
