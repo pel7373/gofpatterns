@@ -1,16 +1,16 @@
 package org.gofpatterns.command.command;
 
-import org.gofpatterns.command.pizza.Pizza;
+import org.gofpatterns.command.pizzeria.Pizzeria;
 
 public class RemoveLastIngredient implements Command {
-    private Pizza pizza;
+    private Pizzeria pizzeria;
 
-    public RemoveLastIngredient(Pizza pizza) {
-        this.pizza = pizza;
+    public RemoveLastIngredient(Pizzeria pizzeria) {
+        this.pizzeria = pizzeria;
     }
 
     @Override
-    public void execute() {
-        pizza.removeLastIngredient();
+    public void execute(Integer... quantity) {
+        pizzeria.removeLastIngredient();
     }
 }

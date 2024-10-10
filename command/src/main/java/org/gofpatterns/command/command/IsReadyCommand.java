@@ -1,17 +1,17 @@
 package org.gofpatterns.command.command;
 
-import org.gofpatterns.command.pizza.Pizza;
+import org.gofpatterns.command.pizzeria.Pizzeria;
 
 public class IsReadyCommand implements Command {
-    private Pizza pizza;
+    private Pizzeria pizzeria;
 
-    public IsReadyCommand(Pizza pizza) {
-        this.pizza = pizza;
+    public IsReadyCommand(Pizzeria pizzeria) {
+        this.pizzeria = pizzeria;
     }
 
     @Override
-    public void execute() {
-        if(pizza.isReady()){
+    public void execute(Integer... quantity) {
+        if(pizzeria.isPizzaReady()){
             System.out.println("Pizza is ready! Bon appetit!");
         } else {
             System.out.println("Pizza isn't ready!");

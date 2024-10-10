@@ -1,21 +1,21 @@
 package org.gofpatterns.command.command;
 
-import org.gofpatterns.command.pizza.Ingredient;
-import org.gofpatterns.command.pizza.Pizza;
+import org.gofpatterns.command.pizzeria.Ingredient;
+import org.gofpatterns.command.pizzeria.Pizzeria;
 
 public class RepeatLastIngredientCommand implements Command {
-    private Pizza pizza;
+    private Pizzeria pizzeria;
 
-    public RepeatLastIngredientCommand(Pizza pizza) {
-        this.pizza = pizza;
+    public RepeatLastIngredientCommand(Pizzeria pizzeria) {
+        this.pizzeria = pizzeria;
     }
 
     @Override
-    public void execute() {
-        if(!pizza.isReady()) {
-            if(!pizza.isIngredientsListEmpty()) {
-                Ingredient ingredient = pizza.getLastIngredient();
-                pizza.addIngredient(ingredient.getFoodType(), ingredient.getQuantity());
+    public void execute(Integer... quantity) {
+        if(!pizzeria.isPizzaReady()) {
+            if(!pizzeria.isIngredientsListEmpty()) {
+                Ingredient ingredient = pizzeria.getLastIngredient();
+                pizzeria.addIngredient(ingredient.getFoodType(), ingredient.getQuantity());
                 System.out.printf("   Was repeated the last ingredient: %s %d g. to our recipe\n", ingredient.getFoodType().toString(), ingredient.getQuantity());
             } else {
                 System.out.println("Can't repeat the last ingredient - the ingredient list for this pizza is empty!");

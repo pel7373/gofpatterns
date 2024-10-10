@@ -1,4 +1,4 @@
-package org.gofpatterns.command.pizza;
+package org.gofpatterns.command.pizzeria;
 
 public enum FoodType {
     CHEESE ("cheese"),

@@ -1,16 +1,16 @@
 package org.gofpatterns.command.command;
 
-import org.gofpatterns.command.pizza.Pizza;
+import org.gofpatterns.command.pizzeria.Pizzeria;
 
 public class ShowIngredientsList implements Command {
-    private Pizza pizza;
+    private Pizzeria pizzeria;
 
-    public ShowIngredientsList(Pizza pizza) {
-        this.pizza = pizza;
+    public ShowIngredientsList(Pizzeria pizzeria) {
+        this.pizzeria = pizzeria;
     }
 
     @Override
-    public void execute() {
-        pizza.showIngredientsList();
+    public void execute(Integer... quantity) {
+        pizzeria.showIngredientsList();
     }
 }

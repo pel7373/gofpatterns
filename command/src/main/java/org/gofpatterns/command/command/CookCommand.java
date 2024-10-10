@@ -1,22 +1,24 @@
 package org.gofpatterns.command.command;
 
-import org.gofpatterns.command.pizza.Pizza;
+import org.gofpatterns.command.pizzeria.Pizzeria;
+
+import static org.gofpatterns.command.config.Config.*;
 
 public class CookCommand implements Command {
-    private Pizza pizza;
+    private Pizzeria pizzeria;
 
-    public CookCommand(Pizza pizza) {
-        this.pizza = pizza;
+    public CookCommand(Pizzeria pizzeria) {
+        this.pizzeria = pizzeria;
     }
 
     @Override
-    public void execute() {
-        if(!pizza.isReady()) {
-            System.out.println("!!! Start cooking pizza");
-            pizza.cook();
-            System.out.println("!!! Pizza is ready! Bon appetit!");
+    public void execute(Integer... quantity) {
+        if(pizzeria.isPizzaReady()) {
+            System.out.printf(PIZZA_COOKING_AGAIN);
         } else {
-            System.out.println("This pizza has already been cooked! It can't be cooked again!");
+            System.out.printf(PIZZA_START_COOKING);
         }
+        pizzeria.cookPizza();
+        System.out.printf(PIZZA_IS_READY);
     }
 }

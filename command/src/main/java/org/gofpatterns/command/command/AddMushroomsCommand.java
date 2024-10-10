@@ -1,21 +1,23 @@
 package org.gofpatterns.command.command;
 
-import org.gofpatterns.command.pizza.FoodType;
-import org.gofpatterns.command.pizza.Pizza;
+import org.gofpatterns.command.pizzeria.FoodType;
+import org.gofpatterns.command.pizzeria.Pizzeria;
+
+import static org.gofpatterns.command.config.Config.*;
 
 public class AddMushroomsCommand implements Command {
-    private Pizza pizza;
+    private Pizzeria pizzeria;
 
-    public AddMushroomsCommand(Pizza pizza) {
-        this.pizza = pizza;
+    public AddMushroomsCommand(Pizzeria pizzeria) {
+        this.pizzeria = pizzeria;
     }
 
     @Override
-    public void execute() {
-        if(!pizza.isReady()) {
-            pizza.addIngredient(FoodType.MUSHROOMS, 160);
+    public void execute(Integer... quantity) {
+        if(!pizzeria.isPizzaReady()) {
+            pizzeria.addIngredient(FoodType.MUSHROOMS, checkAndGetQuantity(MUSHROOMS_DEFAULT_QUANTITY, quantity));
         } else {
-            System.out.println("This pizza has already been cooked, you can't add new ingredients!");
+            System.out.printf(PIZZA_IS_READY_CANT_ADD_INGREDIENT);
         }
     }
 }
