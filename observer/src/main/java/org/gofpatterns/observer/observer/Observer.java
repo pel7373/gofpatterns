@@ -1,9 +1,9 @@
 package org.gofpatterns.observer.observer;
 
-import org.gofpatterns.observer.service.StormLevel;
+import org.gofpatterns.observer.service.Level;
 
 public interface Observer {
-    void addToStormInfoService(StormLevel stormLevel);
-    void removeFromStormInfoService(StormLevel stormLevel);
+    void addToInfoService(Level level);
+    void removeFromInfoService(Level level);
     void notifyMe(String message);
 }

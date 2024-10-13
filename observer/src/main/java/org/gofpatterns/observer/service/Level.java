@@ -1,6 +1,6 @@
 package org.gofpatterns.observer.service;
 
-public enum StormLevel {
+public enum Level {
     LOW,
     MEDIUM,
     HIGH

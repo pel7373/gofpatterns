@@ -1,13 +1,13 @@
 package org.gofpatterns.observer.observer;
 
-import org.gofpatterns.observer.service.StormInfoService;
-import org.gofpatterns.observer.service.StormLevel;
+import org.gofpatterns.observer.service.InfoService;
+import org.gofpatterns.observer.service.Level;
 
 public class ObserverImpl implements Observer {
     private String name;
-    private StormInfoService stormInfoService;
+    private InfoService stormInfoService;
 
-    public ObserverImpl(String name, StormInfoService stormInfoService) {
+    public ObserverImpl(String name, InfoService stormInfoService) {
         this.name = name;
         this.stormInfoService = stormInfoService;
     }
@@ -18,13 +18,13 @@ public class ObserverImpl implements Observer {
     }
 
     @Override
-    public void addToStormInfoService(StormLevel stormLevel) {
-        stormInfoService.addObserver(this, stormLevel);
+    public void addToInfoService(Level level) {
+        stormInfoService.addObserver(this, level);
     }
 
     @Override
-    public void removeFromStormInfoService(StormLevel stormLevel) {
-        stormInfoService.removeObserver(this, stormLevel);
+    public void removeFromInfoService(Level level) {
+        stormInfoService.removeObserver(this, level);
     }
 
     @Override

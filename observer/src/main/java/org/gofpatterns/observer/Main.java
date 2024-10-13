@@ -2,38 +2,39 @@ package org.gofpatterns.observer;
 
 import org.gofpatterns.observer.observer.Observer;
 import org.gofpatterns.observer.observer.ObserverImpl;
-import org.gofpatterns.observer.service.StormInfoService;
+import org.gofpatterns.observer.service.InfoService;
 import org.gofpatterns.observer.service.StormInfoServiceImpl;
-import org.gofpatterns.observer.service.StormLevel;
+import org.gofpatterns.observer.service.Level;
 
 public class Main {
     public static void main(String[] args) {
-        StormInfoService stormInfoService = new StormInfoServiceImpl();
+        InfoService stormInfoService = new StormInfoServiceImpl();
         Observer schoolObserver = new ObserverImpl("school", stormInfoService);
         Observer airportObserver = new ObserverImpl("airport", stormInfoService);
         Observer roadServiceObserver = new ObserverImpl("roadService", stormInfoService);
 
-        schoolObserver.addToStormInfoService(StormLevel.LOW);
-        airportObserver.addToStormInfoService(StormLevel.MEDIUM);
-        roadServiceObserver.addToStormInfoService(StormLevel.HIGH);
+        schoolObserver.addToInfoService(Level.LOW);
+        schoolObserver.addToInfoService(Level.MEDIUM);
+        airportObserver.addToInfoService(Level.MEDIUM);
+        roadServiceObserver.addToInfoService(Level.HIGH);
 
 
         System.out.println();
-        stormInfoService.sendLowNotification();
+        stormInfoService.sendLowLevelNotification("THE DAY AFTER TOMORROW is expected the LOW-level storm!");
         System.out.println();
-        stormInfoService.sendMediumNotification();
+        stormInfoService.sendMediumLevelNotification("IN 2 HOURS is expected the MEDIUM-level storm!");
         System.out.println();
-        stormInfoService.sendHighNotification();
+        stormInfoService.sendHighLevelNotification("TOMORROW is expected the HIGH-level storm!");
 
-        schoolObserver.removeFromStormInfoService(StormLevel.LOW);
-        airportObserver.removeFromStormInfoService(StormLevel.MEDIUM);
-        roadServiceObserver.removeFromStormInfoService(StormLevel.HIGH);
+        schoolObserver.removeFromInfoService(Level.LOW);
+        airportObserver.removeFromInfoService(Level.MEDIUM);
+        roadServiceObserver.removeFromInfoService(Level.HIGH);
 
         System.out.println();
-        stormInfoService.sendLowNotification();
+        stormInfoService.sendLowLevelNotification("THE DAY AFTER TOMORROW is expected the LOW-level storm!");
         System.out.println();
-        stormInfoService.sendMediumNotification();
+        stormInfoService.sendMediumLevelNotification("IN 2 HOURS is expected the MEDIUM-level storm!");
         System.out.println();
-        stormInfoService.sendHighNotification();
+        stormInfoService.sendHighLevelNotification("TOMORROW is expected the HIGH-level storm!");
     }
 }
