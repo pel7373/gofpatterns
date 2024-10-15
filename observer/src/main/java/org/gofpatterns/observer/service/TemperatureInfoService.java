@@ -5,7 +5,7 @@ import org.gofpatterns.observer.observer.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TemperatureInfoService implements InfoService {
+public class TemperatureInfoService implements InfoService<Level> {
     private List<Observer> listObservers = new ArrayList<>();
 
 

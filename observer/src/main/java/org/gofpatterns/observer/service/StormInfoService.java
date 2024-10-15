@@ -5,7 +5,7 @@ import org.gofpatterns.observer.observer.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StormInfoService implements InfoService {
+public class StormInfoService implements InfoService<Level> {
     private List<Observer> lowListObservers = new ArrayList<>();
     private List<Observer> mediumListObservers = new ArrayList<>();
     private List<Observer> highListObservers = new ArrayList<>();
