@@ -13,7 +13,7 @@ public class Main {
         oven.setState(new Overheated());
         oven.bake();
 
-        oven = new Oven(new Cold());
+        oven.setState(new Cold());
         oven.bake();
     }
 }

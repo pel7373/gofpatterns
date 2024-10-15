@@ -3,15 +3,15 @@ package org.gofpatterns.iterator;
 public class Book {
     private String title;
     private String author;
-    private Integer yearOfPublication;
+    private Integer year;
 
     public Book() {
     }
 
-    public Book(String title, String author, Integer yearOfPublication) {
+    public Book(String author, String title, Integer year) {
         this.title = title;
         this.author = author;
-        this.yearOfPublication = yearOfPublication;
+        this.year = year;
     }
 
     public String getTitle() {
@@ -30,12 +30,12 @@ public class Book {
         this.author = author;
     }
 
-    public Integer getYearOfPublication() {
-        return yearOfPublication;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setYearOfPublication(Integer yearOfPublication) {
-        this.yearOfPublication = yearOfPublication;
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Book {
         return "Book{" +
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", yearOfPublication=" + yearOfPublication +
+                ", year=" + year +
                 '}';
     }
 }
