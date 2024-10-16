@@ -1,17 +1,17 @@
 package org.gofpatterns.mediator.service;
 
 public enum ServiceType {
-    TAXI (TaxiService.class),
-    REPAIRER (RepairerService.class),
-    FLOWER_DELIVERY (FlowerDeliveryService.class);
+    TAXI (new TaxiService()),
+    REPAIRER (new RepairerService()),
+    FLOWER_DELIVERY (new FlowerDeliveryService());
 
-    private final Class<? extends Service> clazz;
+    private final Service service;
 
-    ServiceType(Class<? extends Service> clazz) {
-        this.clazz = clazz;
+    ServiceType(Service service) {
+        this.service = service;
     }
 
-    public Class<? extends Service> getClazz() {
-        return clazz;
+    public Service getService() {
+        return service;
     }
 }
