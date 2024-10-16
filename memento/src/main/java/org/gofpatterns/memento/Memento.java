@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Memento {
-    private Map<String, String> mementoMap = new HashMap<>();
+    private final String text;
 
-    public void createMemento(String version, String text) {
-        mementoMap.put(version, text);
+    public Memento(String text) {
+        this.text = text;
     }
 
-    public String getMemento(String version) {
-        return mementoMap.get(version);
+    public String getText() {
+        return text;
     }
 }

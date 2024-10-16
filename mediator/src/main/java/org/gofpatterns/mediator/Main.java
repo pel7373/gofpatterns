@@ -13,9 +13,11 @@ public class Main {
         User user3 = new User("Sergey", "Keletska str., 44", mediator);
 
         user1.callService(ServiceType.TAXI);
-        System.out.println();
         user2.callService(ServiceType.REPAIRER);
-        System.out.println();
         user3.callService(ServiceType.FLOWER_DELIVERY);
+
+        user1.callService(ServiceType.FLOWER_DELIVERY);
+        user2.callService(ServiceType.TAXI);
+        user3.callService(ServiceType.REPAIRER);
     }
 }

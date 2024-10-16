@@ -2,18 +2,13 @@ package org.gofpatterns.memento;
 
 public class TextDocument {
     private String text;
-    private Memento memento;
 
-    public TextDocument(Memento memento) {
-        this.memento = memento;
+    public Memento createMemento() {
+        return new Memento(text);
     }
 
-    public void createMemento(String version) {
-        memento.createMemento(version, text);
-    }
-
-    public void restoreFromMemento(String version) {
-        text = memento.getMemento(version);
+    public void restoreFromMemento(Memento memento) {
+        text = memento.getText();
     }
 
     public String getText() {

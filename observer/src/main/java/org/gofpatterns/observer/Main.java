@@ -10,7 +10,7 @@ import org.gofpatterns.observer.service.TemperatureInfoService;
 public class Main {
     public static void main(String[] args) {
         System.out.println("==== StormInfoService ====");
-        InfoService stormInfoService = new StormInfoService();
+        InfoService<Level> stormInfoService = new StormInfoService();
         Observer schoolObserver = new ObserverImpl("school", stormInfoService);
         Observer airportObserver = new ObserverImpl("airport", stormInfoService);
         Observer roadServiceObserver = new ObserverImpl("roadService", stormInfoService);

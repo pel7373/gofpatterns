@@ -1,4 +1,4 @@
 package org.gofpatterns.mediator.service;
 
-public class FlowerDeliveryService implements Service {
+public class FlowerDeliveryService extends Service {
 }
