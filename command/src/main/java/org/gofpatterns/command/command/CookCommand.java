@@ -4,11 +4,10 @@ import org.gofpatterns.command.pizzeria.Pizzeria;
 
 import static org.gofpatterns.command.config.Config.*;
 
-public class CookCommand implements Command {
-    private Pizzeria pizzeria;
+public class CookCommand extends Command {
 
     public CookCommand(Pizzeria pizzeria) {
-        this.pizzeria = pizzeria;
+        super(pizzeria);
     }
 
     @Override

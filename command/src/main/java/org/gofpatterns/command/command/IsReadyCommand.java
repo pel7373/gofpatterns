@@ -2,11 +2,10 @@ package org.gofpatterns.command.command;
 
 import org.gofpatterns.command.pizzeria.Pizzeria;
 
-public class IsReadyCommand implements Command {
-    private Pizzeria pizzeria;
+public class IsReadyCommand extends Command {
 
     public IsReadyCommand(Pizzeria pizzeria) {
-        this.pizzeria = pizzeria;
+        super(pizzeria);
     }
 
     @Override

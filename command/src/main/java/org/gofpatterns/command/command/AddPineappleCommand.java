@@ -5,19 +5,11 @@ import org.gofpatterns.command.pizzeria.Pizzeria;
 
 import static org.gofpatterns.command.config.Config.*;
 
-public class AddPineappleCommand implements Command {
-    private Pizzeria pizzeria;
+public class AddPineappleCommand extends Command {
 
     public AddPineappleCommand(Pizzeria pizzeria) {
-        this.pizzeria = pizzeria;
-    }
-
-    @Override
-    public void execute(Integer... quantity) {
-        if(!pizzeria.isPizzaReady()) {
-            pizzeria.addIngredient(FoodType.PINEAPPLE, checkAndGetQuantity(PINEAPPLE_DEFAULT_QUANTITY, quantity));
-        } else {
-            System.out.printf(PIZZA_IS_READY_CANT_ADD_INGREDIENT);
-        }
+        super(pizzeria);
+        super.foodType = FoodType.PINEAPPLE;
+        super.defaultQuantity = PINEAPPLE_DEFAULT_QUANTITY;
     }
 }
