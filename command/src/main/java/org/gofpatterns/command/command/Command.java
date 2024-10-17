@@ -4,7 +4,6 @@ import org.gofpatterns.command.pizzeria.FoodType;
 import org.gofpatterns.command.pizzeria.Pizzeria;
 
 import static org.gofpatterns.command.config.Config.PIZZA_IS_READY_CANT_ADD_INGREDIENT;
-import static org.gofpatterns.command.config.Config.SEAFOOD_DEFAULT_QUANTITY;
 
 public abstract class Command {
     protected final Pizzeria pizzeria;

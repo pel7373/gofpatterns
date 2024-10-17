@@ -3,7 +3,7 @@ package org.gofpatterns.command.command;
 import org.gofpatterns.command.pizzeria.FoodType;
 import org.gofpatterns.command.pizzeria.Pizzeria;
 
-import static org.gofpatterns.command.config.Config.*;
+import static org.gofpatterns.command.config.Config.PINEAPPLE_DEFAULT_QUANTITY;
 
 public class AddPineappleCommand extends Command {
 

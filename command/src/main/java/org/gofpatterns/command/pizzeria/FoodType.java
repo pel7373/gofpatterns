@@ -7,7 +7,7 @@ public enum FoodType {
     MUSHROOMS ("mushrooms"),
     SEAFOOD ("seafood");
 
-    private String title;
+    private final String title;
 
     FoodType(String title) {
         this.title = title;

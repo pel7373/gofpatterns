@@ -2,7 +2,8 @@ package org.gofpatterns.command;
 
 import org.gofpatterns.command.command.*;
 import org.gofpatterns.command.customer.Customer;
-import org.gofpatterns.command.pizzeria.*;
+import org.gofpatterns.command.pizzeria.Pizzeria;
+
 
 public class Main {
     public static void main(String[] args) {
