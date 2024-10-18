@@ -5,9 +5,8 @@ import org.gofpatterns.command.exception.IngredientListEmptyException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Pizzeria {
-    private List<Ingredient> pizzaIngredientsList = new ArrayList<>();
+    private final List<Ingredient> pizzaIngredientsList = new ArrayList<>();
     private Boolean isPizzaReady = false;
 
     public Pizzeria() {

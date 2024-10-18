@@ -3,11 +3,10 @@ package org.gofpatterns.command.command;
 import org.gofpatterns.command.pizzeria.Ingredient;
 import org.gofpatterns.command.pizzeria.Pizzeria;
 
-public class RepeatLastIngredientCommand implements Command {
-    private Pizzeria pizzeria;
+public class RepeatLastIngredientCommand extends AbstractCommand {
 
     public RepeatLastIngredientCommand(Pizzeria pizzeria) {
-        this.pizzeria = pizzeria;
+        super(pizzeria);
     }
 
     @Override

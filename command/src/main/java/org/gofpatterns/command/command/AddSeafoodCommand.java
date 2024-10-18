@@ -3,21 +3,13 @@ package org.gofpatterns.command.command;
 import org.gofpatterns.command.pizzeria.FoodType;
 import org.gofpatterns.command.pizzeria.Pizzeria;
 
-import static org.gofpatterns.command.config.Config.*;
+import static org.gofpatterns.command.config.Config.SEAFOOD_DEFAULT_QUANTITY;
 
-public class AddSeafoodCommand implements Command {
-    private Pizzeria pizzeria;
+public class AddSeafoodCommand extends AbstractCommand {
 
     public AddSeafoodCommand(Pizzeria pizzeria) {
-        this.pizzeria = pizzeria;
-    }
-
-    @Override
-    public void execute(Integer... quantity) {
-        if(!pizzeria.isPizzaReady()) {
-            pizzeria.addIngredient(FoodType.SEAFOOD, checkAndGetQuantity(SEAFOOD_DEFAULT_QUANTITY, quantity));
-        } else {
-            System.out.printf(PIZZA_IS_READY_CANT_ADD_INGREDIENT);
-        }
+        super(pizzeria);
+        super.foodType = FoodType.SEAFOOD;
+        super.defaultQuantity = SEAFOOD_DEFAULT_QUANTITY;
     }
 }

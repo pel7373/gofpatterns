@@ -2,11 +2,10 @@ package org.gofpatterns.command.command;
 
 import org.gofpatterns.command.pizzeria.Pizzeria;
 
-public class ShowIngredientsList implements Command {
-    private Pizzeria pizzeria;
+public class ShowIngredientsList extends AbstractCommand {
 
     public ShowIngredientsList(Pizzeria pizzeria) {
-        this.pizzeria = pizzeria;
+        super(pizzeria);
     }
 
     @Override

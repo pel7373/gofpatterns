@@ -1,8 +1,8 @@
 package org.gofpatterns.command.pizzeria;
 
 public class Ingredient {
-    private FoodType foodType;
-    private Integer quantity;
+    private final FoodType foodType;
+    private final Integer quantity;
 
     public Ingredient(FoodType foodType, Integer quantity) {
         this.foodType = foodType;
