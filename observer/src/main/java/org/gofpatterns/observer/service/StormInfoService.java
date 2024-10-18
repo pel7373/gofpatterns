@@ -5,10 +5,10 @@ import org.gofpatterns.observer.observer.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StormInfoService implements InfoService {
-    private List<Observer> lowListObservers = new ArrayList<>();
-    private List<Observer> mediumListObservers = new ArrayList<>();
-    private List<Observer> highListObservers = new ArrayList<>();
+public class StormInfoService implements InfoService<Level> {
+    private final List<Observer> lowListObservers = new ArrayList<>();
+    private final List<Observer> mediumListObservers = new ArrayList<>();
+    private final List<Observer> highListObservers = new ArrayList<>();
 
     @Override
     public void addObserver(Observer observer, Level level) {
@@ -29,13 +29,13 @@ public class StormInfoService implements InfoService {
     }
 
     @Override
-    public void sendNotification(String messase, Level level) {
+    public void sendNotification(String message, Level level) {
 
-        System.out.printf("StormInfoService notifies: %s!\n", messase);
+        System.out.printf("StormInfoService notifies: %s!\n", message);
         switch (level) {
-            case LOW -> lowListObservers.forEach(o -> o.notifyMe(String.format("StormInfoService notifies: %s!\n", messase)));
-            case MEDIUM -> mediumListObservers.forEach(o -> o.notifyMe(String.format("StormInfoService notifies: %s!\n", messase)));
-            case HIGH -> highListObservers.forEach(o -> o.notifyMe(String.format("StormInfoService notifies: %s!\n", messase)));
+            case LOW -> lowListObservers.forEach(o -> o.onEvent(String.format("StormInfoService notifies: %s!\n", message)));
+            case MEDIUM -> mediumListObservers.forEach(o -> o.onEvent(String.format("StormInfoService notifies: %s!\n", message)));
+            case HIGH -> highListObservers.forEach(o -> o.onEvent(String.format("StormInfoService notifies: %s!\n", message)));
         }
     }
 }

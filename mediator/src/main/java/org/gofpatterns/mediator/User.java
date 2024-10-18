@@ -27,8 +27,8 @@ public class User {
     }
 
     public void notifyMe(String message) {
-        System.out.println(message);
-        System.out.printf("I (user %s) have been notified: \"%s\"\n", name, message);
+        //System.out.println(message);
+        System.out.printf("User %s have been notified: \"%s\"\n", name, message);
     }
 
     @Override

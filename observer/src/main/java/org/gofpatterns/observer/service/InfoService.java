@@ -2,8 +2,8 @@ package org.gofpatterns.observer.service;
 
 import org.gofpatterns.observer.observer.Observer;
 
-public interface InfoService {
-    void addObserver(Observer observer, Level level);
-    void removeObserver(Observer observer, Level level);
-    void sendNotification(String messase, Level level);
+public interface InfoService<T> {
+    void addObserver(Observer observer, T t);
+    void removeObserver(Observer observer, T t);
+    void sendNotification(String message, T t);
 }

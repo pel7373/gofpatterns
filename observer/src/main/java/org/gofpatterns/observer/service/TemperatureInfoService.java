@@ -5,9 +5,8 @@ import org.gofpatterns.observer.observer.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TemperatureInfoService implements InfoService {
-    private List<Observer> listObservers = new ArrayList<>();
-
+public class TemperatureInfoService implements InfoService<Level> {
+    private final List<Observer> listObservers = new ArrayList<>();
 
     @Override
     public void addObserver(Observer observer, Level level) {
@@ -22,6 +21,6 @@ public class TemperatureInfoService implements InfoService {
     @Override
     public void sendNotification(String messase, Level level) {
         System.out.printf("TemperatureInfoService notifies: %s!\n", messase);
-        listObservers.forEach(o -> o.notifyMe(String.format("TemperatureInfoService notifies: %s!\n", messase)));
+        listObservers.forEach(o -> o.onEvent(String.format("TemperatureInfoService notifies: %s!\n", messase)));
     }
 }

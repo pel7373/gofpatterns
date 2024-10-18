@@ -4,27 +4,27 @@ import org.gofpatterns.observer.service.InfoService;
 import org.gofpatterns.observer.service.Level;
 
 public class ObserverImpl implements Observer {
-    private String name;
-    private InfoService stormInfoService;
+    private final String name;
+    private final InfoService<Level> infoService;
 
-    public ObserverImpl(String name, InfoService stormInfoService) {
+    public ObserverImpl(String name, InfoService<Level> infoService) {
         this.name = name;
-        this.stormInfoService = stormInfoService;
+        this.infoService = infoService;
     }
 
     @Override
-    public void notifyMe(String message) {
+    public void onEvent(String message) {
         System.out.printf("Me (%s) has been notified: %s", name, message);
     }
 
     @Override
     public void addToInfoService(Level level) {
-        stormInfoService.addObserver(this, level);
+        infoService.addObserver(this, level);
     }
 
     @Override
     public void removeFromInfoService(Level level) {
-        stormInfoService.removeObserver(this, level);
+        infoService.removeObserver(this, level);
     }
 
     @Override
