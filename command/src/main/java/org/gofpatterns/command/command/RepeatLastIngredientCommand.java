@@ -3,7 +3,7 @@ package org.gofpatterns.command.command;
 import org.gofpatterns.command.pizzeria.Ingredient;
 import org.gofpatterns.command.pizzeria.Pizzeria;
 
-public class RepeatLastIngredientCommand extends Command {
+public class RepeatLastIngredientCommand extends AbstractCommand {
 
     public RepeatLastIngredientCommand(Pizzeria pizzeria) {
         super(pizzeria);

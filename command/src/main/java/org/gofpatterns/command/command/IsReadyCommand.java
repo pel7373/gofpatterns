@@ -2,7 +2,7 @@ package org.gofpatterns.command.command;
 
 import org.gofpatterns.command.pizzeria.Pizzeria;
 
-public class IsReadyCommand extends Command {
+public class IsReadyCommand extends AbstractCommand {
 
     public IsReadyCommand(Pizzeria pizzeria) {
         super(pizzeria);

@@ -5,7 +5,7 @@ import org.gofpatterns.command.pizzeria.Pizzeria;
 
 import static org.gofpatterns.command.config.Config.PINEAPPLE_DEFAULT_QUANTITY;
 
-public class AddPineappleCommand extends Command {
+public class AddPineappleCommand extends AbstractCommand {
 
     public AddPineappleCommand(Pizzeria pizzeria) {
         super(pizzeria);

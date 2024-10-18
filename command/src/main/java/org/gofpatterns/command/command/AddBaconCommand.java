@@ -5,7 +5,7 @@ import org.gofpatterns.command.pizzeria.Pizzeria;
 
 import static org.gofpatterns.command.config.Config.BACON_DEFAULT_QUANTITY;
 
-public class AddBaconCommand extends Command{
+public class AddBaconCommand extends AbstractCommand {
 
     public AddBaconCommand(Pizzeria pizzeria) {
         super(pizzeria);

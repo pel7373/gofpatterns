@@ -2,7 +2,7 @@ package org.gofpatterns.command.command;
 
 import org.gofpatterns.command.pizzeria.Pizzeria;
 
-public class ShowIngredientsList extends Command {
+public class ShowIngredientsList extends AbstractCommand {
 
     public ShowIngredientsList(Pizzeria pizzeria) {
         super(pizzeria);

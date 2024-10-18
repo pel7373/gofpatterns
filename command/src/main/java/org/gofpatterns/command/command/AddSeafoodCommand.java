@@ -5,7 +5,7 @@ import org.gofpatterns.command.pizzeria.Pizzeria;
 
 import static org.gofpatterns.command.config.Config.SEAFOOD_DEFAULT_QUANTITY;
 
-public class AddSeafoodCommand extends Command {
+public class AddSeafoodCommand extends AbstractCommand {
 
     public AddSeafoodCommand(Pizzeria pizzeria) {
         super(pizzeria);

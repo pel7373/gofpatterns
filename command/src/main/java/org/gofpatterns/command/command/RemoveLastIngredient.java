@@ -2,7 +2,7 @@ package org.gofpatterns.command.command;
 
 import org.gofpatterns.command.pizzeria.Pizzeria;
 
-public class RemoveLastIngredient extends Command {
+public class RemoveLastIngredient extends AbstractCommand {
 
     public RemoveLastIngredient(Pizzeria pizzeria) {
         super(pizzeria);

@@ -5,7 +5,7 @@ import org.gofpatterns.command.pizzeria.Pizzeria;
 
 import static org.gofpatterns.command.config.Config.MUSHROOMS_DEFAULT_QUANTITY;
 
-public class AddMushroomsCommand extends Command {
+public class AddMushroomsCommand extends AbstractCommand {
 
     public AddMushroomsCommand(Pizzeria pizzeria) {
         super(pizzeria);
