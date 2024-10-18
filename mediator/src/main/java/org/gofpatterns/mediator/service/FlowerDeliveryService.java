@@ -1,6 +1,6 @@
 package org.gofpatterns.mediator.service;
 
-public class FlowerDeliveryService extends Service {
+public class FlowerDeliveryService extends AbstractService {
     public FlowerDeliveryService() {
         service = this;
     }

@@ -1,17 +1,17 @@
 package org.gofpatterns.mediator.mediator;
 
 import org.gofpatterns.mediator.User;
-import org.gofpatterns.mediator.service.ServiceType;
 import org.gofpatterns.mediator.service.Service;
+import org.gofpatterns.mediator.service.ServiceType;
 
 public class MediatorImpl implements Mediator {
     int callID = 0;
-    Mediator mediator = this;
+
     @Override
     public void callService(ServiceType serviceType, User user) {
         String answer = String.format("Dear %s, MediatorImpl is sending your request #%d to %s", user.getName(), callID, serviceType.getService().getClass().getSimpleName());
         user.notifyMe(answer);
-        serviceType.getService().takeCall(user, mediator, callID);
+        serviceType.getService().takeCall(user, this, callID);
         callID++;
     }
 
