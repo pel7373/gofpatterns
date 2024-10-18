@@ -13,7 +13,7 @@ public class Main {
         Command addMushrooms = new AddMushroomsCommand(pizzeria);
         Command addSeafood = new AddSeafoodCommand(pizzeria);
         Command repeatLastIngredient = new RepeatLastIngredientCommand(pizzeria);
-        Command showIngredientList = new ShowIngredientsList(pizzeria);
+        Command showIngredientsList = new ShowIngredientsList(pizzeria);
         Command isReady = new IsReadyCommand(pizzeria);
         Command removeLastIngredient = new RemoveLastIngredient(pizzeria);
         Command cook = new CookCommand(pizzeria);
@@ -31,7 +31,7 @@ public class Main {
         customer.execute(addSeafood, 150);
         customer.execute(removeLastIngredient);
         customer.execute(isReady);
-        customer.execute(showIngredientList);
+        customer.execute(showIngredientsList);
         customer.execute(addCheese, 200);
         customer.execute(cook);
         customer.execute(isReady);

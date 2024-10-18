@@ -23,6 +23,7 @@
         <module>proxy</module>
         <module>chainOfResponsibility</module>
         <module>command</module>
+        <module>interpreter</module>
     </modules>
 
     <properties>
