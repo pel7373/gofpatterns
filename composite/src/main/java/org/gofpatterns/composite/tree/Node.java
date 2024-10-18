@@ -3,6 +3,7 @@ package org.gofpatterns.composite.tree;
 import com.sun.security.jgss.GSSUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Node implements Component {
@@ -17,7 +18,7 @@ public class Node implements Component {
     }
 
     public Node(Component... components) {
-        componentList = new ArrayList<>(List.of(components));
+        componentList = new ArrayList<>(Arrays.asList(components));
     }
 
     public void add(Component component) {
