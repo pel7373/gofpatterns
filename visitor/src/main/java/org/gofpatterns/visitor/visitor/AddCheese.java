@@ -6,6 +6,7 @@ import static org.gofpatterns.visitor.config.Config.PIZZA_IS_READY_CANT_ADD_INGR
 
 public class AddCheese implements Visitor {
 
+    @Override
     public void visit(AmericanPizza pizza) {
         if (!pizza.isReady()) {
             System.out.println("To the AmericanPizza add Cheese Camamber 200 gr. Great!");
@@ -15,15 +16,17 @@ public class AddCheese implements Visitor {
         }
     }
 
+    @Override
     public void visit(JapanesePizza pizza) {
         if (!pizza.isReady()) {
             System.out.println("To the JapanesePizza add Cheese Mozarella 150 gr. Great!");
-            pizza.addIngredient("Cheese Mozarella", 150);
+            pizza.addIngredient("Cheese Mozzarella", 150);
         } else {
             System.out.println(PIZZA_IS_READY_CANT_ADD_INGREDIENTS);
         }
     }
 
+    @Override
     public void visit(UkrainianPizza pizza) {
         if (!pizza.isReady()) {
             System.out.println("To the UkrainianPizza add Cheese Ricotta 250 gr. Great!");

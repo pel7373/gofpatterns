@@ -1,18 +1,18 @@
 package org.gofpatterns.visitor.pizza;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class AbstractPizza implements Pizza {
-    private Map<String, Integer> ingredientsMap = new HashMap<>();
+    private final List<Ingredient> ingredientsList = new ArrayList<>();
     private boolean isReady = false;
 
     public void addIngredient(String ingredient, int quantity) {
-        ingredientsMap.put(ingredient, quantity);
+        ingredientsList.add(new Ingredient(ingredient, quantity));
     }
 
-    public Map<String, Integer> getIngredientsMap() {
-        return ingredientsMap;
+    public List<Ingredient> getIngredientsList() {
+        return ingredientsList;
     }
 
     public boolean isReady() {
