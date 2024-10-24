@@ -1,93 +1,211 @@
-# GoFpatterns
+# GoF patterns 
 
+# Creational Design Patterns GoF - шаблони GoF, що породжують
 
+## Factory method
 
-## Getting started
+Написати програму, використовуючи патерн Factory method:
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+❑ Піч для приготування їжі
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+❑ Готує різні страви, залежно від параметрів, що надходять
 
-## Add your files
+## Abstract factory
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+Написати програму, використовуючи патерн Abstract Factory
 
-```
-cd existing_repo
-git remote add origin https://git.foxminded.ua/foxstudent107493/gofpatterns.git
-git branch -M main
-git push -uf origin main
-```
+❑ Кафе, що спеціалізується на кількох національних кухнях
 
-## Integrate with your tools
+❑ Кожна кухня має традиційні страви
 
-- [ ] [Set up project integrations](https://git.foxminded.ua/foxstudent107493/gofpatterns/-/settings/integrations)
+❑ Готуємо комплексні обіди – для японської, американської та української кухні
 
-## Collaborate with your team
+## Prototype
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Створіть клас автомобіль, що має три різних встановлених варіанти (легковий, вантажний і мінівен), що дозволяє змінювати тільки поля колір і номер.
 
-## Test and Deploy
+Увага - не три класи, а один, просто з трьома встановленими варіантами.
 
-Use the built-in continuous integration in GitLab.
+Метод clone повинен викликатися з клієнтського коду. Мають бути надані методи, що дозволяють створювати різні типи.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Builder
 
-***
+Написати програму, використовуючи патерн Builder: готуємо піцу
 
-# Editing this README
+❑ За кастомним рецептом від користувача, що містить у різних поєднаннях:
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+❑ Сир
 
-## Suggestions for a good README
+❑ Бекон
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+❑ Ананаси
 
-## Name
-Choose a self-explaining name for your project.
+❑ Гриби
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+❑ Морепродукти
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## Singleton
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Створіть клас, що допускає створення не більше 10 екземплярів себе (Multitone) і зберігає посилання на всі ці екземпляри.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+# Structural Design Patterns GoF - шаблони GoF структурні
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+## Adapter
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Створіть адаптер для класу, що має інтерфейс не англійською мовою, достатньо одного-двох методів
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## Bridge
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+Розширюємо та змінюємо програму кафе, використовуючи патерн Bridge
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+❑ Готуємо страву певної кухні
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+❑ Перша, друга, третя страви та десерт
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+## Composite
 
-## License
-For open source projects, say how it is licensed.
+Створіть дерево об'єктів, що дозволяє інкрементувати і декрементувати значення цілого поля по всіх елементах дерева, що знаходяться нижче.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Decorator
+
+Написати програму, використовуючи патерн Decorator
+
+❑ Готуємо піцу за кастомним рецептом від користувача, що містить у різних поєднаннях:
+
+❑ Сир
+
+❑ Бекон
+
+❑ Ананаси
+
+❑ Гриби
+
+❑ Морепродукти
+
+## Facade
+
+Створіть Facade для цього веб-сервісу: http://www.dneonline.com/calculator.asmx
+
+## Flyweight
+
+Напишіть програму, яка підтримує роботу з двома типами юнітів комп'ютерної гри (танки та піхота або піхота та кавалерія) так, щоб можна було включати різнорідні юніти до єдиного списку (створення армії) та змінювати їх координати одночасно (переміщення армії). Причому так, щоб важкі дані кожного юніту – текстура та звуки зберігалися в пам'яті лише один раз для одного типу юнітів.
+
+## Proxy
+
+Створіть до коду з прикладу Facade кешуючий проксі - тобто проксі, який перевіряє чи був такий запит і якщо був - віддає його зі своєї пам'яті. Якщо ні – поміщає його в кеш. Реалізувати очищення кешу та стеження за часом доступу не треба.
+
+# Behavioral Design Patterns GoF - шаблони GoF поведінкові
+
+## Chain of Responsibility
+
+Написати програму, використовуючи патерн Chain of responsibility
+
+❑ Виклик екстреної служби через єдиний інтерфейс
+
+❑ Можна викликати:
+
+❑ Пожежних
+
+❑ Поліцію
+
+❑ Медичну допомогу
+
+## Command
+
+Написати програму, використовуючи патерн Command
+
+❑ Готуємо піцу
+
+❑ За кастомним рецептом від користувача, що містить у різних поєднаннях:
+
+❑ Сир
+
+❑ Бекон
+
+❑ Ананаси
+
+❑ Гриби
+
+❑ Морепродукти
+
+## Interpreter
+
+Розширюємо програму Command, додаючи обробку кастомного рецепта у вигляді рядка
+
+## Iterator
+
+Створіть до списку з книг (Ім'я автора, Назва, рік видання) три ітератори, які пробігають список книг відповідно за трьома полями за зростанням
+
+## Mediator
+
+Написати программу, використовучи патерн Mediator. Консьєрж сервіс. Можна давати завдання на:
+
+❑ Виклик таксі
+
+❑ Виклик майстра додому
+
+❑ Доставка квітів
+
+та повідомляти відправника, не пов'язуючи їх безпосередньо
+
+## Memento
+
+Написати програму, використовуючи патерн Memento. Текстовий редактор. Є функції:
+
+❑ Зберігати нову версію документа
+
+❑ Повертати певну версію документа
+
+## Observer
+
+Написати програму, використовуючи патерн Observer. Сервіс попередження про шторми:
+
+❑ Може повідомляти передплатників про настання шторму. 
+
+❑ Різні передплатники – школи, аеропорт, дорожні служби реагують на різний рівень попередження.
+
+## State
+
+Написати програму, використовуючи патерн State. Піч для приготування піци.
+
+❑ Стани:
+
+❑ Холодна
+
+❑ Готова до роботи
+
+❑ Перегрів
+
+І методи переходу між станами.
+
+А так само метод bake(), який поводиться по-різному в залежності від того, в якому стані пекти - в непрогрітому і в перегрітому кидає ексепшени, а в нормальному - працює.
+
+## Strategy
+
+Написати програму, використовуючи патерн Strategy. Сортувальник списку. Стратегії: 
+
+❑ Bubble сортування
+
+❑ Швидке сортування
+
+## Template Method
+
+Написати програму, використовуючи патерн Template Method. Програма для запису інформації у файл:
+
+❑ Записати поточну дату
+
+❑ Записати поточний час
+
+## Visitor
+
+Написати програму, використовуючи патерн Visitor. Готуємо піцу за кастомним рецептом від користувача, що містить:
+
+❑ Сир
+
+❑ Бекон
+
+❑ Ананаси
+
+❑ Гриби
+
+❑ Морепродукти
