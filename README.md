@@ -1,6 +1,218 @@
 # GoF patterns 
 
-# Creational Design Patterns GoF - шаблони GoF, що породжують
+# Creational Patterns GoF 
+
+## Factory method
+
+Write a program using the Factory method pattern
+
+❑ Food cooking oven
+
+❑ Cooks different dishes depending on the incoming parameters
+
+## Abstract factory
+
+Write a program using the Abstract Factory pattern
+
+❑ A cafe specializing in several national cuisines
+
+❑ Each cuisine contains traditional dishes
+
+❑ We prepare set meals – for Japanese, American and Ukrainian cuisine
+
+## Prototype
+
+Create a car class that has three different preset variants (passenger, truck and minivan), allowing only the color and number fields to be changed
+
+Attention - not three classes, but one, simply with three preset variants.
+
+The clone method should not be called from the client code. On the contrary - methods should be provided that allow creating different types
+
+## Builder
+
+Write a program using the Builder pattern
+
+❑ Cooking pizza
+
+❑ According to a custom recipe from a user containing in different combinations:
+
+❑ Cheese
+
+❑ Bacon
+
+❑ Pineapples
+
+❑ Mushrooms
+
+❑ Seafood
+
+## Singleton
+
+Create a class that allows no more than 10 instances of itself to be created and stores references to all of these instances.
+
+# Structural Design Patterns GoF
+
+## Adapter
+
+Create an adapter for a class that has a non-English interface, one or two methods are enough
+
+## Bridge
+
+Expand and change the cafe program using the Bridge pattern
+
+❑ Preparing a dish of a certain cuisine
+
+❑ First, second, third course and dessert
+
+## Composite
+
+Create an object tree that allows incrementing and decrementing the value of an entire field across all elements of the tree below it
+
+## Decorator
+
+Write a program using the Decorator pattern
+
+❑ Cook pizza
+❑ According to a custom recipe from a user containing in different combinations:
+
+❑ Cheese
+
+❑ Bacon
+
+❑ Pineapples
+
+❑ Mushrooms
+
+❑ Seafood
+
+## Facade
+
+Create a Facade for this web service: http://www.dneonline.com/calculator.asmx
+
+## Flyweight
+
+Write a program that supports work with two types of computer game units (tanks and infantry or infantry and cavalry) so that it would be possible to include different units in a single list (creating an army) and change their coordinates simultaneously (moving an army). Moreover, so that the heavy data of each unit - texture and sounds - are stored in memory only once for one type of units.
+
+## Proxy
+
+Create a caching proxy for the code from the Facade example - that is, a proxy that checks whether such a request has already been made and if so, returns it from its memory. If not, places it in memory. There is no need to implement cache clearing and access time tracking.
+
+# Behavioral Design Patterns GoF 
+
+## Chain of Responsibility
+
+Write a program using the Chain of Responsibility pattern
+
+❑ Calling an emergency service through a single interface
+
+❑ You can call:
+
+❑ Firefighters
+
+❑ Police
+
+❑ Medical assistance
+
+## Command
+
+Write a program using the Command pattern
+
+❑ Cook pizza
+
+❑ According to a custom recipe from a user containing in different combinations:
+
+❑ Cheese
+
+❑ Bacon
+
+❑ Pineapples
+
+❑ Mushrooms
+
+❑ Seafood
+
+## Interpreter
+
+Extend the Command program by adding processing of a custom recipe as a string
+
+## Iterator
+
+Create three iterators for the list of books (Author's name, Title, year of publication), running through the list of books according to three fields in ascending order
+
+## Mediator
+
+Write a program using the Mediator pattern. Concierge service. You can give tasks for:
+
+❑ Calling a taxi
+❑  Calling a technician to your home
+❑ Flower delivery
+
+and notify the sender without directly connecting them
+
+## Memento
+
+Write a program using the Memento pattern. Text editor
+
+There are functions:
+❑  Save a new version of a document
+❑  Return a specific version of a document
+
+## Observer
+
+Write a program using the Observer pattern. Storm Warning Service:
+
+❑ Can notify subscribers about a storm
+
+❑ Different subscribers - schools, airport, road services react to different levels of warning
+
+## State
+
+Write a program using the State pattern. Pizza oven: 
+
+❑ States:
+
+❑ Cold
+
+❑ Ready to work
+
+❑ Overheated
+
+And methods for transitioning between states.
+
+And also the bake() method, which behaves differently depending on the state of the oven - when not heated and when overheated it throws exceptions, and when normal it works.
+
+## Strategy
+
+Write a program using the Strategy pattern. List sorter. Strategies:
+
+❑ Bubble sort
+
+❑ Quick sort
+
+## Template Method
+
+Write a program using the Template Method pattern. Program for writing information to a file:
+
+❑ Write the current date
+
+❑ Write the current time
+
+## Visitor
+
+Write a program using the Visitor pattern. Cook pizza. A custom recipe from a user contains:
+
+❑ Cheese
+
+❑ Bacon
+
+❑ Pineapples
+
+❑ Mushrooms
+
+❑ Seafood
+
+
+# Породжувальні шаблони GoF
 
 ## Factory method
 
@@ -48,7 +260,7 @@
 
 Створіть клас, що допускає створення не більше 10 екземплярів себе (Multitone) і зберігає посилання на всі ці екземпляри.
 
-# Structural Design Patterns GoF - шаблони GoF структурні
+# Структурні шаблони GoF
 
 ## Adapter
 
@@ -94,7 +306,7 @@
 
 Створіть до коду з прикладу Facade кешуючий проксі - тобто проксі, який перевіряє чи був такий запит і якщо був - віддає його зі своєї пам'яті. Якщо ні – поміщає його в кеш. Реалізувати очищення кешу та стеження за часом доступу не треба.
 
-# Behavioral Design Patterns GoF - шаблони GoF поведінкові
+# Поведінкові шаблони GoF
 
 ## Chain of Responsibility
 
@@ -138,7 +350,7 @@
 
 ## Mediator
 
-Написати программу, використовучи патерн Mediator. Консьєрж сервіс. Можна давати завдання на:
+Написати програму з використанням патерну Mediator. Консьєрж сервіс. Можна давати завдання на:
 
 ❑ Виклик таксі
 
@@ -160,7 +372,7 @@
 
 Написати програму, використовуючи патерн Observer. Сервіс попередження про шторми:
 
-❑ Може повідомляти передплатників про настання шторму. 
+❑ Може повідомляти передплатників про настання шторму.
 
 ❑ Різні передплатники – школи, аеропорт, дорожні служби реагують на різний рівень попередження.
 
@@ -182,7 +394,7 @@
 
 ## Strategy
 
-Написати програму, використовуючи патерн Strategy. Сортувальник списку. Стратегії: 
+Написати програму, використовуючи патерн Strategy. Сортувальник списку. Стратегії:
 
 ❑ Bubble сортування
 

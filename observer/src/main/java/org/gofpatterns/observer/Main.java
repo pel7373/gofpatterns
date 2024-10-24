@@ -41,7 +41,7 @@ public class Main {
 
         System.out.println();
         System.out.println("==== TemperatureInfoService ====");
-        InfoService temperatureInfoService = new TemperatureInfoService();
+        InfoService<Level> temperatureInfoService = new TemperatureInfoService();
         schoolObserver = new ObserverImpl("school", temperatureInfoService);
         airportObserver = new ObserverImpl("airport", temperatureInfoService);
         roadServiceObserver = new ObserverImpl("roadService", temperatureInfoService);
